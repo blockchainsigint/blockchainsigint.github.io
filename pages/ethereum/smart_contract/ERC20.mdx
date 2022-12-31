@@ -1,0 +1,61 @@
+# ERC20
+
+## Cosa è un token ERC20?
+
+Un token che implementa il protocollo ERC20. Il protocollo ERC20 è un standard per i token fungibili basati su Ethereum. I token ERC-20 sono utilizzati per rappresentare una varietà di asset digitali, come ad esempio la rappresentazione di monete, punti fedeltà o azioni di società.
+
+Gli ERC-20 sono stati sviluppati per semplificare la creazione di nuove monete digitali sulla piattaforma Ethereum e per garantire che i token possano essere facilmente interscambiati e utilizzati all'interno dell'ecosistema Ethereum. Gli ERC-20 definiscono un insieme di regole che tutti i token ERC-20 devono seguire, come ad esempio la modalità di trasferimento dei token e il modo in cui sono gestiti i bilanci dei token.
+
+Gli ERC-20 sono diventati molto popolari nell'ecosistema delle criptovalute e sono utilizzati per rappresentare una vasta gamma di asset digitali. Le applicazioni di finanza decentralizzata (DeFi) sono state tra le prime ad adottare gli ERC-20, ma anche le applicazioni di gioco e le applicazioni di social media hanno adottato il protocollo ERC-20 per creare i loro token.
+
+## Funzioni dello standard ERC20
+
+Di seguito sono elencate le funzioni principali dello standard ERC-20:
+
+- **totalSupply**: questa funzione restituisce il numero totale di token ERC-20 emessi.
+- **balanceOf**: questa funzione restituisce il numero di token ERC-20 posseduti da un indirizzo specifico sulla blockchain.
+- **transfer**: questa funzione consente di trasferire una quantità specifica di token ERC-20 da un indirizzo all'altro.
+- **transferFrom**: questa funzione consente a un indirizzo di autorizzare un altro indirizzo a trasferire token ERC-20 dal proprio indirizzo al destinatario specificato.
+- **approve**: questa funzione consente a un indirizzo di autorizzare un altro indirizzo a prelevare una quantità specifica di token ERC-20 dal proprio indirizzo.
+- **allowance**: questa funzione restituisce la quantità di token ERC-20 che un indirizzo è autorizzato a prelevare da un altro indirizzo.
+
+## Eventi dello standard ERC20
+
+Lo standard ERC-20 prevede diversi eventi che possono essere utilizzati per tracciare le transazioni di token ERC-20 sulla piattaforma Ethereum. Ecco alcuni degli eventi principali dello standard ERC-20:
+
+- **Transfer**: questo evento viene generato ogni volta che viene eseguito un trasferimento di token ERC-20 da un indirizzo all'altro. L'evento include i seguenti parametri:
+
+  - **from**: l'indirizzo da cui vengono trasferiti i token
+  - **to**: l'indirizzo a cui vengono trasferiti i token
+    value: il numero di token trasferiti
+
+- **Approval**: questo evento viene generato ogni volta che viene modificata l'autorizzazione di prelievo di un indirizzo per un altro indirizzo. L'evento include i seguenti parametri:
+
+  - **owner**: l'indirizzo che ha concesso l'autorizzazione di prelievo
+  - **spender**: l'indirizzo autorizzato a prelevare i token
+  - **value**: la quantità di token che l'indirizzo autorizzato è in grado di prelevare
+
+Gli eventi ERC-20 possono essere facilmente visualizzati utilizzando un block di explorer come [etherscan](https://etherscan.io/), una piattaforma di monitoraggio della blockchain che consente di visualizzare le transazioni e gli eventi sulla blockchain. In questo modo, gli sviluppatori e gli utenti possono facilmente tenere traccia delle transazioni di token ERC-20 e comprendere come essi vengono utilizzati all'interno dell'ecosistema Ethereum.
+
+## Come creare un token ERC20
+
+Per creare un token ERC-20, è necessario utilizzare un linguaggio di programmazione come Solidity o Vyper per scrivere il codice del contratto. Il codice del contratto deve implementare tutte le funzioni e gli eventi dello standard ERC-20. Una volta che il codice del contratto è stato scritto, è possibile compilare il codice e pubblicarlo sulla blockchain Ethereum.
+
+```solidity filename="Token.sol" copy
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract MyToken is ERC20, ERC20Burnable, Ownable {
+    constructor() ERC20("MyToken", "MTK") {}
+
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
+}
+```
+
+[Provalo su Remix](https://remix.ethereum.org/?#code=Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IE1JVApwcmFnbWEgc29saWRpdHkgXjAuOC45OwoKaW1wb3J0ICJAb3BlbnplcHBlbGluL2NvbnRyYWN0c0A0LjguMC90b2tlbi9FUkMyMC9FUkMyMC5zb2wiOwppbXBvcnQgIkBvcGVuemVwcGVsaW4vY29udHJhY3RzQDQuOC4wL3Rva2VuL0VSQzIwL2V4dGVuc2lvbnMvRVJDMjBCdXJuYWJsZS5zb2wiOwppbXBvcnQgIkBvcGVuemVwcGVsaW4vY29udHJhY3RzQDQuOC4wL2FjY2Vzcy9Pd25hYmxlLnNvbCI7Cgpjb250cmFjdCBNeVRva2VuIGlzIEVSQzIwLCBFUkMyMEJ1cm5hYmxlLCBPd25hYmxlIHsKICAgIGNvbnN0cnVjdG9yKCkgRVJDMjAoIk15VG9rZW4iLCAiTVRLIikge30KCiAgICBmdW5jdGlvbiBtaW50KGFkZHJlc3MgdG8sIHVpbnQyNTYgYW1vdW50KSBwdWJsaWMgb25seU93bmVyIHsKICAgICAgICBfbWludCh0bywgYW1vdW50KTsKICAgIH0KfQo)
