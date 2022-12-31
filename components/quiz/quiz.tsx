@@ -12,7 +12,7 @@ export const Quiz = (props: Props) => {
     console.log("you clicked those checkboxes", e.target);
     //get checked checkboxes
     const checkedCheckboxes = Array.from(e.target as HTMLFormElement).filter(
-      (input) => input.checked
+      (input: HTMLInputElement) => input.checked
     ) as HTMLInputElement[];
     //get values of checked checkboxes
     const checkedValues = checkedCheckboxes.map((input) => input.value);
