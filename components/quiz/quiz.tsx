@@ -20,10 +20,16 @@ export const Quiz = (props: Props) => {
     const correctAnswers = props.answers.filter((answer) => answer.correct);
     //get values of correct answers
     const correctValues = correctAnswers.map((answer) => answer.value);
-    //compare checked values with correct values
-    const correct = checkedValues.every((value) =>
-      correctValues.includes(value)
+    //compare checked values and correct values equals
+    console.log("checkedValues", checkedValues);
+    console.log("correctValues", correctValues);
+
+    const correct = checkedValues.every(
+      (value) =>
+        correctValues.includes(value) &&
+        checkedValues.length === correctValues.length
     );
+
     setCorrect(correct ? "Risposta corretta" : "Risposta errata");
   };
 
