@@ -2,7 +2,30 @@
 
 ## Cosa è un NFT?
 
-Un NFT è un tipo di token non fungibile.
+Un NFT (acronimo di Non-Fungible Token) è un tipo di token crittografico aderente allo standard ERC721, rappresenta l'unicità e di un oggetto digitale o fisico. A differenza dei token fungibili, che possono essere scambiati tra loro, i NFT sono unici e non possono essere scambiati come se fossero lo stesso asset digitale. I token fungibili possono essere descritti come appunto gettoni, i quali possono essere accumulati ed essere scambiati tra loro. Gli NFT, invece, sono come una scultura, che rappresenta un oggetto unico e quindi non accumulabile in massa.
+
+Ogni NFT è associato a un identificativo univoco sulla blockchain e contiene una serie di dati crittografati che ne confermano l'unicità.
+
+NFT possono essere utilizzati per rappresentare qualsiasi tipo di oggetto digitale, come ad esempio immagini, video, audio, giochi o persino tweet. Possono anche essere utilizzati per rappresentare oggetti fisici, come ad esempio opere d'arte o memorabilia.
+
+Uno dei vantaggi principali degli NFT è che essi possono garantire la proprietà di un oggetto digitale o fisico. Inoltre, essi consentono di tracciare la storia e il percorso di un oggetto attraverso la blockchain, rendendo più facile per gli acquirenti verificarne i passaggi.
+
+Sono diventati molto popolari negli ultimi tempi, soprattutto nel mondo dell'arte digitale, dove sono stati utilizzati per vendere opere d'arte uniche a prezzi elevati. Tuttavia, essi sono stati utilizzati anche in altri settori, come ad esempio per rappresentare diritti d'autore, biglietti per eventi e persino tweet.
+
+## Funzioni dello standard ERC721
+
+Il contratto NFT deve implementare le seguenti funzioni:
+
+- `tokenURI(uint256)`: restituisce l'URI del token
+- `balanceOf(address)`: restituisce il numero di token posseduti da un indirizzo
+- `ownerOf(uint256)`: restituisce l'indirizzo del proprietario di un token
+- `approve(address, uint256)`: consente ad un indirizzo di trasferire il proprio token
+- `getApproved(uint256)`: restituisce l'indirizzo autorizzato a trasferire un token
+- `setApprovalForAll(address, bool)`: consente ad un indirizzo di trasferire tutti i token di un proprietario
+- `isApprovedForAll(address, address)`: restituisce se un indirizzo è autorizzato a trasferire tutti i token di un proprietario
+- `transferFrom(address, address, uint256)`: trasferisce un token da un indirizzo a un altro
+- `safeTransferFrom(address, address, uint256)`: trasferisce un token da un indirizzo a un altro
+- `safeTransferFrom(address, address, uint256, bytes)`: trasferisce un token da un indirizzo a un altro
 
 ## Codice template
 
@@ -19,3 +42,7 @@ contract MyNFT is ERC721 {
 ```
 
 [Provalo su Remix](https://remix.ethereum.org/#code=Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IE1JVApwcmFnbWEgc29saWRpdHkgXjAuOC45OwoKaW1wb3J0ICJAb3BlbnplcHBlbGluL2NvbnRyYWN0c0A0LjguMC90b2tlbi9FUkM3MjEvRVJDNzIxLnNvbCI7Cgpjb250cmFjdCBNeU5GVCBpcyBFUkM3MjEgewogICAgY29uc3RydWN0b3IoKSBFUkM3MjEoIk15TkZUIiwgIk1ORlQiKSB7fQp9Cg)
+
+## Sfida 1
+
+Implementa la funzione `tokenURI` che restituisce l'URI del token.

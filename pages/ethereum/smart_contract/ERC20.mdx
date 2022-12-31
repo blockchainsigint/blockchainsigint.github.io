@@ -2,7 +2,7 @@
 
 ## Cosa è un token ERC20?
 
-Un token che implementa il protocollo ERC20. Il protocollo ERC20 è un standard per i token fungibili basati su Ethereum. I token ERC-20 sono utilizzati per rappresentare una varietà di asset digitali, come ad esempio la rappresentazione di monete, punti fedeltà o azioni di società.
+Un token che implementa [il protocollo ERC20](https://eips.ethereum.org/EIPS/eip-20). Il protocollo ERC20 è un standard per i token fungibili basati su Ethereum. I token ERC-20 sono utilizzati per rappresentare una varietà di asset digitali, come ad esempio la rappresentazione di monete, punti fedeltà o azioni di società.
 
 Gli ERC-20 sono stati sviluppati per semplificare la creazione di nuove monete digitali sulla piattaforma Ethereum e per garantire che i token possano essere facilmente interscambiati e utilizzati all'interno dell'ecosistema Ethereum. Gli ERC-20 definiscono un insieme di regole che tutti i token ERC-20 devono seguire, come ad esempio la modalità di trasferimento dei token e il modo in cui sono gestiti i bilanci dei token.
 
@@ -59,3 +59,73 @@ contract MyToken is ERC20, ERC20Burnable, Ownable {
 ```
 
 [Provalo su Remix](https://remix.ethereum.org/?#code=Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IE1JVApwcmFnbWEgc29saWRpdHkgXjAuOC45OwoKaW1wb3J0ICJAb3BlbnplcHBlbGluL2NvbnRyYWN0c0A0LjguMC90b2tlbi9FUkMyMC9FUkMyMC5zb2wiOwppbXBvcnQgIkBvcGVuemVwcGVsaW4vY29udHJhY3RzQDQuOC4wL3Rva2VuL0VSQzIwL2V4dGVuc2lvbnMvRVJDMjBCdXJuYWJsZS5zb2wiOwppbXBvcnQgIkBvcGVuemVwcGVsaW4vY29udHJhY3RzQDQuOC4wL2FjY2Vzcy9Pd25hYmxlLnNvbCI7Cgpjb250cmFjdCBNeVRva2VuIGlzIEVSQzIwLCBFUkMyMEJ1cm5hYmxlLCBPd25hYmxlIHsKICAgIGNvbnN0cnVjdG9yKCkgRVJDMjAoIk15VG9rZW4iLCAiTVRLIikge30KCiAgICBmdW5jdGlvbiBtaW50KGFkZHJlc3MgdG8sIHVpbnQyNTYgYW1vdW50KSBwdWJsaWMgb25seU93bmVyIHsKICAgICAgICBfbWludCh0bywgYW1vdW50KTsKICAgIH0KfQo)
+
+## Quiz
+
+import { Quiz } from "../../../components/quiz/quiz";
+
+<Quiz
+  label="Con quale funzione gli exchange possono verificare il saldo di un indirizzo?"
+  answers={[
+    { value: "balanceOf", correct: true },
+    { value: "transfer" },
+    { value: "transferFrom" },
+    { value: "approve" },
+  ]}
+/>
+
+<Quiz
+  label="Come viene chiamata l'azione che permette di creare nuovi token ERC-20?"
+  answers={[
+    { value: "burn" },
+    { value: "minting", correct: true },
+    { value: "mint", correct: true },
+  ]}
+/>
+
+<Quiz
+  label="Seleziona tutte le risposte vere"
+  answers={[
+    {
+      value:
+        "Si possono mandare i token ad un indirizzo 0x0000000000000000000000000000000000000000 rendendoli inutilizzabili",
+      correct: true,
+    },
+    { value: "Non è possibile distruggere i token ERC-20", correct: true },
+    {
+      value:
+        "Mandare i token ad un indirizzo 0x0000000000000000000000000000000000000000 è una operazione reversibile",
+    },
+    {
+      value:
+        "Bisogna distruggere fisicamente il wallet che contiene token ERC-20 per renderli inutilizzabili",
+    },
+  ]}
+/>
+
+<Quiz
+  label="Come viene chiamata l'azione che permette di distruggere token ERC-20?"
+  answers={[
+    { value: "burn" },
+    { value: "minting" },
+    { value: "mint" },
+    {
+      value:
+        "La domanda è corretta, l'azione di burn rende i token inutilizzabili trasferendoli ad un indirizzo di cui nessuno ne possiede la chiave privata",
+      correct: true,
+    },
+  ]}
+/>
+
+<Quiz
+  label="In che modo vengono distrutti i token ERC-20?"
+  answers={[
+    { value: "L'azione burn viene eseguita dall'indirizzo del contratto" },
+    { value: "L'azione burn viene eseguita dall'indirizzo del proprietario del contratto" },
+    { value: "L'azione burn viene eseguita dall'indirizzo del mittente", correct: true  },
+    { value: "L'azione burn viene eseguita dall'indirizzo del possessore", correct: true },
+  ]}
+
+/>
+
+## Sfida 1

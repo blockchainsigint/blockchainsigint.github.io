@@ -36,7 +36,7 @@ export const Quiz = (props: Props) => {
   return (
     <form onSubmit={checkSubmitCorrectAnswers}>
       <div style={{ padding: "8px 0px" }}>
-        <h3>{props.label}</h3>
+        <strong>{props.label}</strong>
       </div>
       {
         /* map answers with a checkbox */
