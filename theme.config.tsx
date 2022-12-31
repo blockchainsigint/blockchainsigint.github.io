@@ -7,11 +7,11 @@ const config: DocsThemeConfig = {
     link: "https://github.com/blockchainsigint",
   },
   chat: {
-    link: "https://discord.com",
+    link: "https://discord.gg/bKkDpBCgNG",
   },
   docsRepositoryBase: "https://github.com/blockchainsigint/akasha-nextjs",
   footer: {
-    text: "Nextra Docs Template",
+    text: "Realizzato con Nextra Docs Template",
   },
 };
 
