@@ -1,0 +1,21 @@
+# NFT
+
+## Cosa è un NFT?
+
+Un NFT è un tipo di token non fungibile.
+
+## Codice template
+
+```solidity filename="Nft.sol" copy
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+
+contract MyNFT is ERC721 {
+    constructor() ERC721("MyNFT", "MNFT") {}
+}
+
+```
+
+[Provalo su Remix](https://remix.ethereum.org/#code=Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IE1JVApwcmFnbWEgc29saWRpdHkgXjAuOC45OwoKaW1wb3J0ICJAb3BlbnplcHBlbGluL2NvbnRyYWN0c0A0LjguMC90b2tlbi9FUkM3MjEvRVJDNzIxLnNvbCI7Cgpjb250cmFjdCBNeU5GVCBpcyBFUkM3MjEgewogICAgY29uc3RydWN0b3IoKSBFUkM3MjEoIk15TkZUIiwgIk1ORlQiKSB7fQp9Cg)

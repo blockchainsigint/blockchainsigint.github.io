@@ -1,15 +1,11 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
+  "index": "Introduzione",
+  "esempi": "Esempi",
+  "ethereum": "Ethereum",
   "contact": {
-    "title": "Contact ↗",
+    "title": "Contatti ↗",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://www.linkedin.com/in/lorenzo-zaccagnini/",
     "newWindow": true
   }
 }

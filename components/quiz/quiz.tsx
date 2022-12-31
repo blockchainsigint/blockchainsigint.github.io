@@ -1,5 +1,4 @@
 import { useState } from "react";
-import styles from "./counters.module.css";
 
 interface Props {
   label: string;
@@ -7,12 +6,7 @@ interface Props {
 }
 
 export const Quiz = (props: Props) => {
-  const [count, setCount] = useState(0);
-
-  function handleClick() {
-    setCount(count + 1);
-  }
-
+  const [correct, setCorrect] = useState("");
   const checkSubmitCorrectAnswers = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log("you clicked those checkboxes", e.target);
@@ -30,23 +24,41 @@ export const Quiz = (props: Props) => {
     const correct = checkedValues.every((value) =>
       correctValues.includes(value)
     );
-    console.log("correct?", correct);
+    setCorrect(correct ? "Risposta corretta" : "Risposta errata");
   };
 
   return (
     <form onSubmit={checkSubmitCorrectAnswers}>
+      <div style={{ padding: "8px 0px" }}>
+        <h3>{props.label}</h3>
+      </div>
       {
         /* map answers with a checkbox */
         props.answers.map((answer, index) => {
           return (
             <div key={index}>
               <input type="checkbox" name={"quiz"} value={answer.value} />
-              <label htmlFor={answer.value}>{answer.value}</label>
+              <label htmlFor={answer.value} style={{ marginLeft: "0.5rem" }}>
+                {answer.value}
+              </label>
             </div>
           );
         })
       }
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        style={{
+          border: "1px solid #ccc",
+          borderRadius: "5px",
+          padding: "8px 12px",
+          margin: "12px 0 0",
+        }}
+      >
+        Rispondi
+      </button>
+      <div style={{ padding: "8px 0px" }}>
+        <div>{correct}</div>
+      </div>
     </form>
   );
 };

@@ -1,0 +1,22 @@
+# Esempi UI
+
+## Blocco di codice
+
+```js filename="demo.js" {3} copy
+let a = 1;
+
+console.log(a);
+```
+
+## Quiz
+
+import { Quiz } from "../components/quiz/quiz";
+
+<Quiz
+  label="What is the answer?"
+  answers={[
+    { value: "A", correct: false },
+    { value: "B", correct: true },
+    { value: "C", correct: false },
+  ]}
+/>
