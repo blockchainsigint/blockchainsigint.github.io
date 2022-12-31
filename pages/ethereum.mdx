@@ -9,10 +9,20 @@ Ethereum è una piattaforma decentralizzata per applicazioni che permette di cre
 import { Quiz } from "../components/quiz/quiz";
 
 <Quiz
-  label="Quale è stato il primo l'algoritmo di consenso utilizzato per la creazione di Ethereum?"
+  label="Quale è stato il primo l'algoritmo di consenso utilizzato per la creazione di Ethereum main net?"
   answers={[
     { value: "Proof of Work", correct: true },
     { value: "Proof of Stake", correct: false },
+    { value: "Proof of Authority", correct: false },
+    { value: "Proof of Space", correct: false },
+  ]}
+/>
+
+<Quiz
+  label="Quali algoritmi di consenso ha utilizzato e utilizza ora Ethereum main net?"
+  answers={[
+    { value: "Proof of Work", correct: true },
+    { value: "Proof of Stake", correct: true },
     { value: "Proof of Authority", correct: false },
     { value: "Proof of Space", correct: false },
   ]}
