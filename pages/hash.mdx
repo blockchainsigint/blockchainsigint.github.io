@@ -1,0 +1,33 @@
+# Hash
+
+## Cosa è l’hashing
+
+Una funzione hash è una funzione matematica che converte un valore di input numerico in un altro valore numerico compresso. L'input della funzione hash è di lunghezza arbitraria ma l'output è sempre di lunghezza fissa. Viene per indicizzare i dati, per e verificarne la loro integrità e mille altri utilizzi.
+
+Un hash è il risultato di una funzione di hashing, facciamo degli esempi:
+
+**INPUT:** ciao
+**Algoritmo di Hash MD5 OUTPUT:** 6e6bc4e49dd477ebc98ef4046c067b5f
+
+**INPUT**: precipitevolissimevolmente
+**Algoritmo di Hash MD5 OUTPUT**: 13050e8a2402f3cc173c28cf3e4c525d
+
+**Cosa notate?** Il risultato è sempre di 32 caratteri, ma il risultato cambia a seconda dell’input. Questo è il motivo per cui si dice che l’hash è univoco.
+
+## Usi dell’hash
+
+L’hash viene utilizzato per verificare l’integrità dei dati, per esempio se un file è stato modificato o meno. Per fare questo si calcola l’hash del file prima di inviarlo e si invia anche l’hash. Quando il file arriva al destinatario si calcola l’hash del file ricevuto e si confronta con quello ricevuto. Se sono uguali allora il file non è stato modificato, altrimenti è stato modificato.
+
+## Benefici dell’hash
+
+- Risparmio di spazio, indifferentemente dalla lunghezza del dato in input abbiamo un output di lunghezza fissa
+- Anonimato, non possiamo ricostruire direttamente il dato iniziale dal suo hash
+- Firma digitale, ogni cambiamento o modifica al dato di input produce un risultato totalmente differente, per esempio cambiando una lettera non avremo un hash differente di una lettera ma totalmente differente.
+
+## Collisioni
+
+Le collisioni sono quando due input diversi producono lo stesso hash. Le funzioni hash possono mappare dati diversi sullo stesso hash (in virtù del principio della casella), gli utenti malintenzionati possono approfittarne per creare imitazioni dei dati
+
+Le applicazioni utilizzare algoritmi di hash crittografici progettati per essere sufficientemente lunghi da rendere improbabili le corrispondenze casuali, abbastanza veloci da poter essere utilizzati ovunque e abbastanza sicuri da rendere estremamente difficile trovare collisioni.
+
+[Approfondisci con questo juypter notebook sulla generazione di collision](https://github.com/LorenzoZaccagnini/cryptography-works/blob/master/MD5%20Collision/Create_MD5_collision_ANSA.ipynb)
