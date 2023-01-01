@@ -4,6 +4,12 @@
 
 Un NFT (acronimo di Non-Fungible Token) è un tipo di token crittografico aderente allo standard ERC721, rappresenta l'unicità e di un oggetto digitale o fisico. A differenza dei token fungibili, che possono essere scambiati tra loro, i NFT sono unici e non possono essere scambiati come se fossero lo stesso asset digitale. I token fungibili possono essere descritti come appunto gettoni, i quali possono essere accumulati ed essere scambiati tra loro. Gli NFT, invece, sono come una scultura, che rappresenta un oggetto unico e quindi non accumulabile in massa.
 
+**Unicità**: L'architettura NFT descrive come questo token si differenzia da tutti gli altri. Dovrebbe essere un asset unico.
+
+**Rarità**: Collezionismo e rarità danno valore ai beni. Gli NFT non fanno eccezione. Alcuni beni sono preziosi da soli perché sono in numero limitato. Ma il motivo principale per cui si forma questa caratteristica è la viralità. I CryptoKitties non sarebbero stati così famosi se non fossero diventati un meme
+
+**Indivisibilità**: A differenza di Bitcoin o Ether, gli NFT non possono essere suddivisi in tagli più piccoli. Tali beni non possono essere acquistati o venduti in parti - solo nel loro insieme.
+
 Ogni NFT è associato a un identificativo univoco sulla blockchain e contiene una serie di dati crittografati che ne confermano l'unicità.
 
 NFT possono essere utilizzati per rappresentare qualsiasi tipo di oggetto digitale, come ad esempio immagini, video, audio, giochi o persino tweet. Possono anche essere utilizzati per rappresentare oggetti fisici, come ad esempio opere d'arte o memorabilia.
@@ -11,6 +17,42 @@ NFT possono essere utilizzati per rappresentare qualsiasi tipo di oggetto digita
 Uno dei vantaggi principali degli NFT è che essi possono garantire la proprietà di un oggetto digitale o fisico. Inoltre, essi consentono di tracciare la storia e il percorso di un oggetto attraverso la blockchain, rendendo più facile per gli acquirenti verificarne i passaggi.
 
 Sono diventati molto popolari negli ultimi tempi, soprattutto nel mondo dell'arte digitale, dove sono stati utilizzati per vendere opere d'arte uniche a prezzi elevati. Tuttavia, essi sono stati utilizzati anche in altri settori, come ad esempio per rappresentare diritti d'autore, biglietti per eventi e persino tweet.
+
+## I metadati degli NFT
+
+I metadati sono informazioni associate ad un asset digitale, che ne descrivono le caratteristiche. Gli NFT possono contenere metadati che descrivono l'asset, come ad esempio il titolo, l'autore, la data di creazione, la descrizione, l'immagine, il video, l'audio, il prezzo, ecc. I metadati possono essere immutabili o mutabili.
+
+I metadati possono essere inclusi direttamente nell'NFT o possono essere archiviati su una piattaforma separata e referenziati dall'NFT.
+
+I metadati immutabili sono quelli che non possono essere modificati dopo la creazione dell'NFT, sono quelli inclusi a codice nell'NFT o quelli su sistemi come IPFS.
+
+Generalmente sono un JSON simile a questo
+
+```json filename="metadata.json" copy
+{
+  "name": "Lorenzo",
+  "description": "un developer di Ethereum",
+  "image": "https://gateway.pinata.cloud/ipfs/Qm...",
+  "attributes": [
+    {
+      "trait_type": "Background",
+      "value": "Blue"
+    },
+    {
+      "trait_type": "Eyes",
+      "value": "Happy"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "Smiling"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "Classic"
+    }
+  ]
+}
+```
 
 ## Funzioni dello standard ERC721
 
@@ -43,28 +85,55 @@ contract MyNFT is ERC721 {
 
 [Provalo su Remix](https://remix.ethereum.org/#code=Ly8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IE1JVApwcmFnbWEgc29saWRpdHkgXjAuOC45OwoKaW1wb3J0ICJAb3BlbnplcHBlbGluL2NvbnRyYWN0c0A0LjguMC90b2tlbi9FUkM3MjEvRVJDNzIxLnNvbCI7Cgpjb250cmFjdCBNeU5GVCBpcyBFUkM3MjEgewogICAgY29uc3RydWN0b3IoKSBFUkM3MjEoIk15TkZUIiwgIk1ORlQiKSB7fQp9Cg)
 
-## Sfida 1
+## Quiz
+
+import { Quiz } from "../../../components/quiz/quiz";
+
+<Quiz
+  label="Seleziona le affermazioni vere sullo standard ERC721"
+  answers={[
+    {
+      value:
+        "E' possibile pubblicare due smart contract NFT esattamente identici nella stessa blockchain EVM, tranne l'indirizzo",
+      correct: true,
+    },
+    {
+      value:
+        "E' possibile clonare i metadati di un NFT semplicemente mettendo lo stesso URI",
+      correct: true,
+    },
+    { value: "Gli NFT rendono un asset unico universalmente", correct: false },
+    {
+      value: "I metadati sono immutabili e impossibili da manipolare",
+      correct: false,
+    },
+  ]}
+/>
+
+## Sfida 1 - NFT in affitto
 
 Completa il contratto NFT in modo che implementi lo [standard 4907](https://eips.ethereum.org/EIPS/eip-4907#abstract), che estende lo standard ERC721 permettendo l'affitto di NFT.
 
 [Vai alla sfida](https://github.com/blockchainsigint/sfide-blockchain/tree/main/rentable-nft)
 
-Per capire se hai risolto correttamente la sfida lancia il test con il comando:
+Per capire se hai risolto correttamente la sfida lancia i test con il comando:
 
 ```bash
+yarn
 cd rentable-nft
 npx hardhat test
 ```
 
-## Sfida 2
+## Sfida 2 - Soulbound
 
 Completa il contratto NFT rendendolo soulbound, ovvero in modo che il token non sia trasferibile ma solo mintato la prima volta. Utile per creare NFT di attestati e certificati.
 
-Per capire se hai risolto correttamente la sfida lancia il test con il comando:
+[Vai alla sfida](https://github.com/blockchainsigint/sfide-blockchain/tree/main/soulbound-nft)
+
+Per capire se hai risolto correttamente la sfida lancia i test con i comandi:
 
 ```bash
+yarn
 cd soulbound-nft
 npx hardhat test
 ```
-
-[Vai alla sfida](https://github.com/blockchainsigint/sfide-blockchain/tree/main/soulbound-nft)
