@@ -45,6 +45,26 @@ contract MyNFT is ERC721 {
 
 ## Sfida 1
 
-Implementa la funzione `tokenURI` che restituisce l'URI del token.
+Completa il contratto NFT in modo che implementi lo [standard 4907](https://eips.ethereum.org/EIPS/eip-4907#abstract), che estende lo standard ERC721 permettendo l'affitto di NFT.
 
-[Vai alla sfida](https://gitpod.io/#https://github.com/blockchainsigint/sfide-blockchain/tree/main/rentable-nft)
+[Vai alla sfida](https://github.com/blockchainsigint/sfide-blockchain/tree/main/rentable-nft)
+
+Per capire se hai risolto correttamente la sfida lancia il test con il comando:
+
+```bash
+cd rentable-nft
+npx hardhat test
+```
+
+## Sfida 2
+
+Completa il contratto NFT rendendolo soulbound, ovvero in modo che il token non sia trasferibile ma solo mintato la prima volta. Utile per creare NFT di attestati e certificati.
+
+Per capire se hai risolto correttamente la sfida lancia il test con il comando:
+
+```bash
+cd soulbound-nft
+npx hardhat test
+```
+
+[Vai alla sfida](https://github.com/blockchainsigint/sfide-blockchain/tree/main/soulbound-nft)
