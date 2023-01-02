@@ -40,11 +40,15 @@ import { Knob } from "../../../components/knob/knob";
 
 <Knob size={200} progress={5} max={15} label={"Overflow"} labelColor="green" />
 
-## Challenge Batch Overflow
+## Sfida - Batch Overflow
 
 L'exploit ha portato alla generazione di miliardi di token ERC20, causando l'interruzione temporanea dei depositi e dei prelievi di ERC20 da parte dei principali exchange fino a quando tutti i token non possono essere valutati per la vulnerabilità.
 
-L'exploit, chiamato exploit batchOverflow, è stato osservato per la prima volta il 22 aprile 2018, quando sono stati creati 115 octodecilioni di BEC (Beauty Coin) in due transazioni. All'epoca, BEC veniva scambiato a $ 0,32 per token, il che rende il valore totale in dollari dell'exploit di circa $ 3,7 novemdecilioni, una cifra davvero assurda, che è un 1 seguito da 60 zeri.
+L'exploit, chiamato exploit batchOverflow, è stato osservato per la prima volta il 22 aprile 2018, quando sono stati creati 115 octodecilioni di BEC (Beauty Coin) [in due transazioni](https://etherscan.io/tx/0x3a06c5f572d6582d267239575190788adfa1f16f49e07bfdd52088b9beb8c402). All'epoca, BEC veniva scambiato a $ 0,32 per token, il che rende il valore totale in dollari dell'exploit di circa $ 3,7 novemdecilioni, una cifra davvero assurda, che è un 1 seguito da 60 zeri.
+
+**Simula l'exploit in locale su Remix, poi prova a difendere lo smart contract da questo exploit.**
+
+[Prova a risolvere la sfida](https://remix.ethereum.org/#url=https://github.com/blockchainsigint/sfide-blockchain/blob/master/bec/BeautyChain.sol)
 
 ## Come evitare gli overflow e gli underflow
 
@@ -57,4 +61,5 @@ L'exploit, chiamato exploit batchOverflow, è stato osservato per la prima volta
 ## Risorse
 
 [Ethereum Smart Contracts Vulnerabilities: Integer Overflow and Underflow](https://dreamlab.net/en/blog/post/ethereum-smart-contracts-vulnerabilities-integer-overflow-and-underflow/)
+
 [SWC Registry: Integer Overflow and Underflow](https://swcregistry.io/docs/SWC-101)
