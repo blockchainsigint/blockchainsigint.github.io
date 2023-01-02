@@ -79,7 +79,7 @@ export const Knob = (props: Props) => {
             cy={center}
             fill="transparent"
             r={radius}
-            stroke={trackColor}
+            stroke={value > max || value < 0 ? "red" : trackColor}
             strokeWidth={trackWidth}
           />
           <circle
@@ -133,6 +133,7 @@ export const Knob = (props: Props) => {
           min={max * -1}
         />
       </div>
+      <br />
     </>
   );
 };

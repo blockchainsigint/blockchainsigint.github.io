@@ -1,6 +1,6 @@
-# Overflow and Underflow
+# Overflow & Underflow
 
-## Perchè in solidity si usano più spesso gli uint?
+## Perchè in solidity si usano spesso gli uint?
 
 Gli uint sono più comodi da usare, in quanto non possono essere negativi. Inoltre, gli uint sono più efficienti rispetto agli int, in quanto occupano meno spazio nella blockchain. Infine, gli uint sono più sicuri, in quanto non possono essere negativi ed è essenziale che non lo siano quando parliamo di bilanci e quantità di token.
 
@@ -39,6 +39,20 @@ Questo perchè 00000000 è il numero più piccolo che può essere rappresentato 
 import { Knob } from "../../../components/knob/knob";
 
 <Knob size={200} progress={5} max={15} label={"Overflow"} labelColor="green" />
+
+## Challenge Batch Overflow
+
+L'exploit ha portato alla generazione di miliardi di token ERC20, causando l'interruzione temporanea dei depositi e dei prelievi di ERC20 da parte dei principali exchange fino a quando tutti i token non possono essere valutati per la vulnerabilità.
+
+L'exploit, chiamato exploit batchOverflow, è stato osservato per la prima volta il 22 aprile 2018, quando sono stati creati 115 octodecilioni di BEC (Beauty Coin) in due transazioni. All'epoca, BEC veniva scambiato a $ 0,32 per token, il che rende il valore totale in dollari dell'exploit di circa $ 3,7 novemdecilioni, una cifra davvero assurda, che è un 1 seguito da 60 zeri.
+
+## Come evitare gli overflow e gli underflow
+
+- Usa SafeMath per prevenire overflow e underflow aritmetici
+- Solidity 0.8 per impostazione predefinita genera un errore per overflow/underflow
+- Usare modifier/require per restringere il range numerico
+- Quando fate affidamento ad altri contratti ricordate sempre di guardare la versione di pragma, deve essere uguale o superiore a 0.8.0.
+- State attenti all'uso di unchecked, in quanto potrebbe causare overflow/underflow, attenzione al codice in assembly.
 
 ## Risorse
 
