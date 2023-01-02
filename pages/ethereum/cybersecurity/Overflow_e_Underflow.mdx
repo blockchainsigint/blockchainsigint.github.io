@@ -17,21 +17,21 @@ Il sistema numerico binario è un sistema numerico in base 2. Ciò significa che
 
 Per convertire un numero da binario a decimale, puoi sommare le posizioni. Ogni posizione che ha un "1" rappresenta una potenza di 2, a partire dal posto 0.
 
-**Esempio:** 101 = 2^2 + 2^0 = 4 + 1 = 5
+**Esempio:** 101 = 2^2 + 2^0 = 4 + 1 = 5\
 **Esempio:** 11110 = 2^4 + 2^3 + 2^2 + 2^1 = 16 + 8 + 4 + 2 = 30
 
 ## Overflow
 
 L'overflow si verifica quando un numero binario ha più bit di quelli che può rappresentare. Ad esempio, un uint8 può rappresentare numeri da 0 a 255. Se proviamo a sommare 1 a 255, otterremo 256, che non può essere rappresentato da un uint8. Quindi, il risultato sarà 0. Per questa caratteristica viene anche chiamata matematica dell'orologio.
 
-**Esempio:** 11111111 + 00000001 = 255 + 1 = 256 = 00000000/
+**Esempio:** 11111111 + 00000001 = 255 + 1 = 256 = 00000000\
 Questo perchè 11111111 è il numero più grande che può essere rappresentato da un uint8, cioè 255. Quindi, quando sommiamo 1, otteniamo 256, che non può essere rappresentato da un uint8, quindi il risultato sarà 0.
 
 ## Underflow
 
 L'underflow si verifica quando un numero binario ha meno bit di quelli che può rappresentare. Ad esempio, un uint8 può rappresentare numeri da 0 a 255. Se proviamo a sottrarre 1 a 0, otterremo -1, che non può essere rappresentato da un uint8. Quindi, il risultato sarà 255.
 
-**Esempio:** 00000000 - 00000001 = 0 - 1 = -1 = 11111111/
+**Esempio:** 00000000 - 00000001 = 0 - 1 = -1 = 11111111\
 Questo perchè 00000000 è il numero più piccolo che può essere rappresentato da un uint8, cioè 0. Quindi, quando sottraiamo 1, otteniamo -1, che non può essere rappresentato da un uint4, quindi il risultato sarà 255.
 
 ## Contatore interattivo
