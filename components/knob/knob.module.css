@@ -1,0 +1,100 @@
+/*
+ * SVG Progress Indicator
+ *
+ * Set-up the indicator using SVG attributes that are 
+ * supported as properties in CSS.
+ *
+ * @since 07/07/22
+ * @link  https://codepen.io/_rahul/pen/BarobwE
+ */
+
+.svg-pi-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 16px auto;
+  padding-bottom: 32px;
+}
+
+.svg-pi {
+  transform: rotate(-90deg); /* Fix the orientation */
+}
+
+/* Animated spinner version */
+.svg-pi-indicator__spinner {
+  animation: spinner 0.75s linear infinite;
+  transform-origin: center;
+}
+
+.svg-pi-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.svg-pi-label__loading {
+  opacity: 0.5;
+  font-size: 0.75em;
+}
+
+.svg-pi-label__progress {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.svg-pi-label__loading,
+.svg-pi-label__progress {
+  display: block;
+}
+
+/* Spinner animation */
+@keyframes spinner {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.shakeobj {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+    10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+    20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}

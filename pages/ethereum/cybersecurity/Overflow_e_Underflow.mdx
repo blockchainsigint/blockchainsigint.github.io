@@ -1,0 +1,46 @@
+# Overflow and Underflow
+
+## Perchè in solidity si usano più spesso gli uint?
+
+Gli uint sono più comodi da usare, in quanto non possono essere negativi. Inoltre, gli uint sono più efficienti rispetto agli int, in quanto occupano meno spazio nella blockchain. Infine, gli uint sono più sicuri, in quanto non possono essere negativi ed è essenziale che non lo siano quando parliamo di bilanci e quantità di token.
+
+Abbiamo due tipi di interi:
+
+- uint: unsigned integer, senza segno (- o +) non può essere negativo
+- int: signed integer, può essere negativo
+
+Un uint8 avrà una capacita di 8 bit, quindi può rappresentare numeri da 0 a 255. Un uint256 avrà una capacita di 256 bit, quindi può rappresentare numeri da 0 a 2^256-1. In solidity abbiamo circa 32 tipi di interi, che vanno da uint8 a uint256, lo stesso per gli int.
+
+## Matematica binaria
+
+Il sistema numerico binario è un sistema numerico in base 2. Ciò significa che ha solo due numeri: 0 e 1. Il sistema numerico che usiamo normalmente è il sistema numerico decimale. Ha 10 numeri: 0-9.
+
+Per convertire un numero da binario a decimale, puoi sommare le posizioni. Ogni posizione che ha un "1" rappresenta una potenza di 2, a partire dal posto 0.
+
+**Esempio:** 101 = 2^2 + 2^0 = 4 + 1 = 5
+**Esempio:** 11110 = 2^4 + 2^3 + 2^2 + 2^1 = 16 + 8 + 4 + 2 = 30
+
+## Overflow
+
+L'overflow si verifica quando un numero binario ha più bit di quelli che può rappresentare. Ad esempio, un uint8 può rappresentare numeri da 0 a 255. Se proviamo a sommare 1 a 255, otterremo 256, che non può essere rappresentato da un uint8. Quindi, il risultato sarà 0. Per questa caratteristica viene anche chiamata matematica dell'orologio.
+
+**Esempio:** 11111111 + 00000001 = 255 + 1 = 256 = 00000000/
+Questo perchè 11111111 è il numero più grande che può essere rappresentato da un uint8, cioè 255. Quindi, quando sommiamo 1, otteniamo 256, che non può essere rappresentato da un uint8, quindi il risultato sarà 0.
+
+## Underflow
+
+L'underflow si verifica quando un numero binario ha meno bit di quelli che può rappresentare. Ad esempio, un uint8 può rappresentare numeri da 0 a 255. Se proviamo a sottrarre 1 a 0, otterremo -1, che non può essere rappresentato da un uint8. Quindi, il risultato sarà 255.
+
+**Esempio:** 00000000 - 00000001 = 0 - 1 = -1 = 11111111/
+Questo perchè 00000000 è il numero più piccolo che può essere rappresentato da un uint8, cioè 0. Quindi, quando sottraiamo 1, otteniamo -1, che non può essere rappresentato da un uint4, quindi il risultato sarà 255.
+
+## Contatore interattivo
+
+import { Knob } from "../../../components/knob/knob";
+
+<Knob size={200} progress={5} max={15} label={"Overflow"} labelColor="green" />
+
+## Risorse
+
+[Ethereum Smart Contracts Vulnerabilities: Integer Overflow and Underflow](https://dreamlab.net/en/blog/post/ethereum-smart-contracts-vulnerabilities-integer-overflow-and-underflow/)
+[SWC Registry: Integer Overflow and Underflow](https://swcregistry.io/docs/SWC-101)
