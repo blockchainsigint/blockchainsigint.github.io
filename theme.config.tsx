@@ -4,7 +4,7 @@ import { DocsThemeConfig } from "nextra-theme-docs";
 const config: DocsThemeConfig = {
   logo: <span>Blockchain Sigint</span>,
   project: {
-    link: "https://github.com/",
+    link: "https://github.com/blockchainsigint/blockchainsigint.github.io/",
   },
   chat: {
     link: "https://discord.gg/bKkDpBCgNG",
