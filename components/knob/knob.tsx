@@ -79,7 +79,7 @@ export const Knob = (props: Props) => {
             cy={center}
             fill="transparent"
             r={radius}
-            stroke={value > max || value < 0 ? "red" : trackColor}
+            stroke={value > max || value < 0 ? "darkred" : trackColor}
             strokeWidth={trackWidth}
           />
           <circle
@@ -120,7 +120,14 @@ export const Knob = (props: Props) => {
         )}
         <input
           type="number"
-          onChange={handleChange}
+          onChange={(e) => {
+            const evalue = Math.max(
+              max * -1,
+              Math.min(max * 2, Number(e.target.value))
+            );
+            setValue(Number(evalue));
+            setNormalizedValue((Number(e.target.value) * 100) / max);
+          }}
           value={value}
           style={{
             marginTop: 16,
