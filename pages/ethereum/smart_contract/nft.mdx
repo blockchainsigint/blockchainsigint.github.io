@@ -110,7 +110,49 @@ import { Quiz } from "../../../components/quiz/quiz";
   ]}
 />
 
-## Sfida 1 - NFT in affitto
+## Sfida - Medatadati mutabili
+
+Completa il contratto NFT in modo che implementi lo [standard 721](https://eips.ethereum.org/EIPS/eip-721#abstract) e la tokenURI restituisca un URI che punti a un file JSON con i metadati del token. Nella sfida troverai il nome dell'endpoint che dovrai creare ed il contenuto da restituire per passare la prova.
+
+[Vai alla sfida](https://github.com/blockchainsigint/sfide-blockchain/tree/main/metadata-nft)
+
+Per capire se hai risolto correttamente la sfida lancia i test con il comando:
+
+```bash
+yarn
+cd metadata-nft
+npx hardhat test
+```
+
+## Sfida - Metadati immutabili IPFS
+
+Completa il contratto NFT in modo che implementi lo [standard 721](https://eips.ethereum.org/EIPS/eip-721#abstract) e la tokenURI restituisca un URI che punti a ad un contenuto hostato su IPFS.
+
+[Vai alla sfida](https://github.com/blockchainsigint/sfide-blockchain/tree/main/metadata-ipfs-nft)
+
+Per capire se hai risolto correttamente la sfida lancia i test con il comando:
+
+```bash
+yarn
+cd metadata-ipfs-nft
+npx hardhat test
+```
+
+## Sfida - Metadati hardcoded in solidity
+
+Completa il contratto NFT in modo che implementi lo [standard 721](https://eips.ethereum.org/EIPS/eip-721#abstract), i metadati dovranno essere contenuti onchain all'interno dello smart contract.
+
+[Vai alla sfida](https://github.com/blockchainsigint/sfide-blockchain/tree/main/metadata-onchain-nft)
+
+Per capire se hai risolto correttamente la sfida lancia i test con il comando:
+
+```bash
+yarn
+cd metadata-onchain-nft
+npx hardhat test
+```
+
+## Sfida - NFT in affitto
 
 Completa il contratto NFT in modo che implementi lo [standard 4907](https://eips.ethereum.org/EIPS/eip-4907#abstract), che estende lo standard ERC721 permettendo l'affitto di NFT.
 
@@ -124,7 +166,7 @@ cd rentable-nft
 npx hardhat test
 ```
 
-## Sfida 2 - Soulbound
+## Sfida - Soulbound
 
 Completa il contratto NFT rendendolo soulbound, ovvero in modo che il token non sia trasferibile ma solo mintato la prima volta. Utile per creare NFT di attestati e certificati.
 
